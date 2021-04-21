@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/new">
+        <file>Логотип.png</file>
+        <file>Арка.png</file>
+        <file>Занавеса.png</file>
+        <file>Занавеса_1.png</file>
+        <file>Корень.png</file>
+        <file>Корень_1.png</file>
+        <file>Круговая.png</file>
+        <file>Парабола.png</file>
+        <file>Плечо.png</file>
+        <file>Сегментная.png</file>
+        <file>Стрельчатая.png</file>
+        <file>Трилисник.png</file>
+        <file>Циклоида.png</file>
+        <file>Эллипс.png</file>
+        <file>Круговая_1.png</file>
+        <file>Парабола_1.png</file>
+        <file>Плечо_1.png</file>
+        <file>Сегментная_1.png</file>
+        <file>Стрельчатая_1.png</file>
+        <file>Трилисник_1.png</file>
+        <file>Циклоида_1.png</file>
+        <file>Эллипс_1.png</file>
+        <file>Log.ico</file>
+    </qresource>
+</RCC>

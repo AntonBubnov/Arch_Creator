@@ -7,9 +7,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    Logo = "image: url(:/new/Логотип.png);";    // Передаём путь к картинке логотипа в страку
+    Logo = "image: url(:/new/Логотип.png);";    // Передаём путь к картинке логотипа в строку
     logo = ui->pushButton;                      // Передаём кнопку
-    logo ->setStyleSheet(Logo);                 // Устанавлеваем картику логотипа на кнопку
+    logo ->setStyleSheet(Logo);                 // Устанавливаем картинку логотипа на кнопку
 }
 
 MainWindow::~MainWindow()

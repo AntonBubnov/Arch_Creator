@@ -15,7 +15,7 @@ ThirdWindow::ThirdWindow(QWidget *parent) :
     xEnd = B/2.0;       // Конец цикла
 
     ui->widget->xAxis2->setVisible(true);       //
-    ui->widget->yAxis2->setVisible(true);       // Настраиваем внешнийвид
+    ui->widget->yAxis2->setVisible(true);       // Настраиваем внешний вид
     ui->widget->xAxis2->setTickLabels(false);   // координатных осей
     ui->widget->yAxis2->setTickLabels(false);   //
 
@@ -67,11 +67,11 @@ ThirdWindow::ThirdWindow(QWidget *parent) :
 
     // Добавляем стрелки и значения высоты, ширины, стрелы подъёма арки на чертёж
 
-    QCPItemLine *arrow_A = new QCPItemLine(ui->widget); // Создаём стрелк, для высоты
+    QCPItemLine *arrow_A = new QCPItemLine(ui->widget); // Создаём стрелку, для высоты
     arrow_A->start->setCoords(-0.625*B, -A);            // Координаты начала стрелки
-    arrow_A->end->setCoords(-0.625*B, 0);               // Координаты конча стрелки
+    arrow_A->end->setCoords(-0.625*B, 0);               // Координаты конца стрелки
     arrow_A->setHead(QCPLineEnding::esSpikeArrow);      // Рисуем стрелу в конце
-    arrow_A->setTail(QCPLineEnding::esSpikeArrow);      // Рисуем стрилу в начале
+    arrow_A->setTail(QCPLineEnding::esSpikeArrow);      // Рисуем стрелу в начале
 
     QString str_A=QString("%1").arg(A);                 // Создаём строку и записываем в неё значение высоты
     QCPItemText *Text_A = new QCPItemText(ui->widget);  // Создаём текстовую надпись, для значения высоты
@@ -80,7 +80,7 @@ ThirdWindow::ThirdWindow(QWidget *parent) :
     Text_A->setText(str_A);                             // Передаём в надпись строку со значением высоты
     Text_A->setFont(QFont(font().family(), 10));        // Отображаем надпись
 
-    QCPItemLine *arrow_B = new QCPItemLine(ui->widget); // Создаём стрелк, для ширины
+    QCPItemLine *arrow_B = new QCPItemLine(ui->widget); // Создаём стрелку, для ширины
     arrow_B->start->setCoords(-0.5*B, -A-0.125*B);
     arrow_B->end->setCoords(0.5*B, -A-0.125*B);
     arrow_B->setHead(QCPLineEnding::esSpikeArrow);
@@ -92,7 +92,7 @@ ThirdWindow::ThirdWindow(QWidget *parent) :
     Text_B->setText(str_B);
     Text_B->setFont(QFont(font().family(), 10));
 
-    QCPItemLine *arrow_H = new QCPItemLine(ui->widget); // Создаём стрелк, для стрелы подъёма
+    QCPItemLine *arrow_H = new QCPItemLine(ui->widget); // Создаём стрелку, для стрелы подъёма
     arrow_H->start->setCoords(-0.625*B, 0);
     arrow_H->end->setCoords(-0.625*B, H);
     arrow_H->setHead(QCPLineEnding::esSpikeArrow);
@@ -106,7 +106,7 @@ ThirdWindow::ThirdWindow(QWidget *parent) :
     Text_H->setFont(QFont(font().family(), 10));
 
     ui->widget->setInteraction(QCP::iRangeZoom, true); // Возможность зума осей
-    ui->widget->setInteraction(QCP::iRangeDrag, true); // Возсожность перетаскивания графика
+    ui->widget->setInteraction(QCP::iRangeDrag, true); // Возможность перетаскивания графика
 
     ui->widget->replot();   // Рисуем всё на графике
 }
@@ -130,7 +130,7 @@ void ThirdWindow::DrawPerimeter()
     y1.push_back(0);        //
 
     x.push_back(xBegin);    //
-    y.push_back(0);         // Добовляем в вектора координаты начала и конца криволинейной части
+    y.push_back(0);         // Добавляем в вектора координаты начала и конца криволинейной части
     x.push_back(xEnd);      // При отрисовке графика координаты сортируется
     y.push_back(0);         // Получим кривую которая точно начинается и заканчивается в указаных точках
 }
@@ -139,7 +139,7 @@ void ThirdWindow::DrawPerimeter()
 
 void ThirdWindow::Read_from_file()
 {
-    QFile file(".//data.txt");      // Создаём объект типа QFile в который записываем созданый текстовый файл
+    QFile file(".//data.txt");      // Создаём объект типа QFile в который передаём созданый текстовый файл
 
     // Открываем файл только для чтения текста
     // Проверяем открытие файла
@@ -171,7 +171,7 @@ void ThirdWindow::DrawSemicircular()
         y.push_back(sqrt(R*R-X*X));
     }
 
-    // В цикле заполняем векторы координат, для дополнительнх построений
+    // В цикле заполняем векторы координат, для дополнительных построений
 
     for(X=xBegin;X<=xEnd;X+=h){
         x3.push_back(X);
@@ -210,7 +210,7 @@ void ThirdWindow::DrawSemicircular()
     Text_R2->setText(str_R);
     Text_R2->setFont(QFont(font().family(), 10));
 
-    // Выводим информацию о соединении прямоугольной и криволинейной частях арки
+    // Выводим информацию о соединении прямоугольной и криволинейной части арки
 
     QString str=" Арка плавно входит ";
     QCPItemText *Text = new QCPItemText(ui->widget);

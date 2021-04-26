@@ -22,7 +22,7 @@ SecondWindow::SecondWindow(QWidget *parent) :
     ui->pushButton_12->setEnabled(false);   //
     ui->pushButton_13->setEnabled(false);   //
 
-    // Устанавливаем картинки неактивных арок на соответствующте кнопки
+    // Устанавливаем картинки неактивных арок на соответствующие кнопки
 
     //***************************************************************//
     Arch = "image: url(:/new/Круговая_1.png);";                      //
@@ -266,7 +266,7 @@ void SecondWindow::Write_to_file()
     // Проверяем открытие файла
 
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
-        QMessageBox::information(this,"Ошибка","Неправильный путь!"); // Выводим информацию, если неудалось открыть файл
+        QMessageBox::information(this,"Ошибка","Неправильный путь!"); // Выводим информацию, если не удалось открыть файл
         return;
     }
 

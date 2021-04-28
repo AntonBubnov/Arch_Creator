@@ -724,8 +724,8 @@ void ThirdWindow::DrawParabolic()
 
     DrawGraph();
 
-    QString str_x="*x + ";
-    QString str_y=QString(" y = %1%2%3 ").arg(C, 0, 'f', 3).arg(str_x).arg(H, 0, 'f',0 );
+    QString str_x="*x";
+    QString str_y=QString(" y = %1%2%3 ").arg(C, 0, 'f', 2).arg(str_x+QString(0x00B2)+" + ").arg(H, 0, 'f',0 );
     Angle = 90+atan(-4*H/B)*180/M_PI ;
 
     QCPItemText *Text = new QCPItemText(ui->widget);
@@ -759,8 +759,8 @@ void ThirdWindow::DrawRoot()
 
     DrawGraph();
 
-    QString str_x="*sqrt(x + ";
-    QString str_y=QString(" y = %1%2%3%4 ").arg(C, 0, 'f', 3).arg(str_x).arg(B/2.0, 0, 'f',0 ).arg(')');
+    QString str_x="(x + ";
+    QString str_y=QString(" y = %1%2%3%4 ").arg(C, 0, 'f', 2).arg("*"+QString(0x221A)+str_x).arg(B/2.0, 0, 'f',0 ).arg(')');
 
     QCPItemText *Text = new QCPItemText(ui->widget);
     Text->position->setCoords(0, H+0.1*B);

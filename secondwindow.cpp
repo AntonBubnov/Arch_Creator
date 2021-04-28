@@ -22,6 +22,19 @@ SecondWindow::SecondWindow(QWidget *parent) :
     ui->pushButton_12->setEnabled(false);   //
     ui->pushButton_13->setEnabled(false);   //
 
+    ui->pushButton_2->setToolTip("Стрела подъёма должна быть равна половине ширины");
+    ui->pushButton_3->setToolTip("Стрела подъёма должна быть меньше половины ширины");
+    ui->pushButton_4->setToolTip("Стрела подъёма должна быть больше половины ширины");
+    ui->pushButton_5->setToolTip("Стрела подъёма должна быть равна половине ширины");
+    ui->pushButton_6->setToolTip("Стрела подъёма должна быть больше половины ширины");
+    ui->pushButton_8->setToolTip("Стрела подъёма должна быть небольше половины ширины");
+    ui->pushButton_10->setToolTip("Стрела подъёма должна быть в "+QString::fromUtf8("\u03C0")+" раз меньше чем ширина");
+    ui->pushButton_12->setToolTip("Стрела подъёма не должна равнятся половине ширины");
+    ui->pushButton_13->setToolTip("стрела подъёма должна быть больше чем шестая часть ширины");
+    ui->arrow->setToolTip("Введите натуральное число от 1 до 10.000");
+    ui->height->setToolTip("Введите натуральное число от 1 до 10.000");
+    ui->width->setToolTip("Введите натуральное число от 1 до 10.000");
+
     // Устанавливаем картинки неактивных арок на соответствующие кнопки
 
     //***************************************************************//
@@ -61,9 +74,17 @@ SecondWindow::SecondWindow(QWidget *parent) :
     cycloid = ui->pushButton_10;                                     //
     cycloid ->setStyleSheet(Arch);                                   //
                                                                      //
+    Arch = "image: url(:/new/КореньР_1.png);";                       //
+    rootR = ui->pushButton_11;                                        //
+    rootR ->setStyleSheet(Arch);                                      //
+                                                                     //
     Arch = "image: url(:/new/Эллипс_1.png);";                        //
     elliptical = ui->pushButton_12;                                  //
     elliptical ->setStyleSheet(Arch);                                //
+                                                                     //
+    Arch = "image: url(:/new/Тюдор_1.png);";                         //
+    tudor = ui->pushButton_13;                                        //
+    tudor ->setStyleSheet(Arch);                                      //
     //***************************************************************//
 }
 
@@ -99,6 +120,11 @@ void SecondWindow::on_pushButton_clicked()
         Arch = "image: url(:/new/Корень.png);"; //
         root = ui->pushButton_7;                // Устанавливаем картинку активной арки
         root ->setStyleSheet(Arch);             //
+
+        ui->pushButton_11->setEnabled(true);
+        Arch = "image: url(:/new/КореньР.png);";
+        rootR = ui->pushButton_11;
+        rootR ->setStyleSheet(Arch);
 
         ui->pushButton_9->setEnabled(true);
         Arch = "image: url(:/new/Парабола.png);";
@@ -199,6 +225,19 @@ void SecondWindow::on_pushButton_clicked()
             segment = ui->pushButton_3;
             segment ->setStyleSheet(Arch);
         }
+
+        if(h>b/6){
+            ui->pushButton_13->setEnabled(true);
+            Arch = "image: url(:/new/Тюдор.png);";
+            tudor = ui->pushButton_13;
+            tudor ->setStyleSheet(Arch);
+        }
+        else{
+            ui->pushButton_12->setEnabled(false);
+            Arch = "image: url(:/new/Тюдор_1.png);";
+            tudor = ui->pushButton_13;
+            tudor ->setStyleSheet(Arch);
+        }
     }
     else{
         ui->pushButton_2->setEnabled(false);        // Делаем кнопку неактивной
@@ -246,10 +285,19 @@ void SecondWindow::on_pushButton_clicked()
         cycloid = ui->pushButton_10;
         cycloid ->setStyleSheet(Arch);
 
+        Arch = "image: url(:/new/КореньР_1.png);";
+        rootR = ui->pushButton_11;
+        rootR ->setStyleSheet(Arch);
+
         ui->pushButton_12->setEnabled(false);
         Arch = "image: url(:/new/Эллипс_1.png);";
         elliptical = ui->pushButton_12;
         elliptical ->setStyleSheet(Arch);
+
+        ui->pushButton_13->setEnabled(false);
+        Arch = "image: url(:/new/Тюдор_1.png);";
+        tudor = ui->pushButton_13;
+        tudor ->setStyleSheet(Arch);
 
         QMessageBox::critical(this,"Ошибка","Неверный формат ввода"); // Сообщение об ошибке, при неправельных входных данных
         return;
@@ -352,12 +400,12 @@ void SecondWindow::on_pushButton_10_clicked()
 
 void SecondWindow::on_pushButton_13_clicked()
 {
-    n=11;
+    n=12;
     FormCreation();
 }
 
 void SecondWindow::on_pushButton_11_clicked()
 {
-    n=12;
+    n=11;
     FormCreation();
 }

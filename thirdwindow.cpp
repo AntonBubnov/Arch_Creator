@@ -61,6 +61,10 @@ ThirdWindow::ThirdWindow(QWidget *parent) :
         break;
     case 10: DrawCycloid();
         break;
+    case 11: DrawRootR();
+        break;
+    case 12: DrawTudor();
+        break;
     }
 
     setWindowTitle(Name);       // Изменяем имя окна в зависимости от выбраной арки
@@ -774,6 +778,113 @@ void ThirdWindow::DrawRoot()
     Text_1->setText(str);
     Text_1->setFont(QFont(font().family(), 10));
     Text_1->setPen(QPen(Qt::black));
+
+    DrawPoint();
+}
+
+void ThirdWindow::DrawRootR()
+{
+    Name = "Арка в форме квадратного корня";
+    DrawPerimeter();
+    C = H/sqrt(B);
+    for(X=xBegin;X<=xEnd;X+=h){
+            x.push_back(X);
+            y.push_back(C*sqrt(-X+B/2.0));
+    }
+
+    DrawGraph();
+
+    QString str_x="(-x + ";
+    QString str_y=QString(" y = %1%2%3%4 ").arg(C, 0, 'f', 2).arg("*"+QString(0x221A)+str_x).arg(B/2.0, 0, 'f',0 ).arg(')');
+
+    QCPItemText *Text = new QCPItemText(ui->widget);
+    Text->position->setCoords(0, H+0.1*B);
+    Text->setText(str_y);
+    Text->setFont(QFont(font().family(), 10));
+    Text->setPen(QPen(Qt::black));
+
+    QString str=" Арка плавно входит ";
+    QCPItemText *Text_1 = new QCPItemText(ui->widget);
+    Text_1->position->setCoords(0, -A-0.3*B);
+    Text_1->setText(str);
+    Text_1->setFont(QFont(font().family(), 10));
+    Text_1->setPen(QPen(Qt::black));
+
+    DrawPoint();
+}
+
+void ThirdWindow::DrawTudor()
+{
+    Name = "Арка в стиле тюдор";
+    DrawPerimeter();
+
+    R = B/6.0;
+    C = ((pow(B, 3)/27)-(sqrt(36*B*B*pow(H, 4) + 3*H*H*pow(B, 4))/9.0))/(4*H*H+(4*B*B)/9);
+
+    for(X=xBegin+h;X<xEnd;X+=h){
+        if(X<=C-B/3.0){
+            x.push_back(X);
+            y.push_back(sqrt(R*R-(X+2*R)*(X+2*R)));
+        }
+        else if(X>=B/3.0-C){
+            x.push_back(X);
+            y.push_back(sqrt(R*R-(X-2*R)*(X-2*R)));
+        }
+        else{
+            x3.push_back(X);
+            y3.push_back(sqrt(R*R-(abs(X)-2*R)*(abs(X)-2*R)));
+        }
+        x4.push_back(X);
+        y4.push_back(-sqrt(R*R-(abs(X)-2*R)*(abs(X)-2*R)));
+    }
+
+    x.push_back(0);
+    y.push_back(H);
+
+    DrawGraph();
+
+    x2.push_back(-2*R);
+    y2.push_back(0);
+    x2.push_back(2*R);
+    y2.push_back(0);
+
+    QString str_C=QString("%1").arg(R+C, 0, 'f', 0);
+
+    QCPItemLine *arrow_C = new QCPItemLine(ui->widget);
+    arrow_C->start->setCoords(2*R, 0);
+    arrow_C->end->setCoords(B/3.0-C, 0);
+    arrow_C->setHead(QCPLineEnding::esSpikeArrow);
+    arrow_C->setTail(QCPLineEnding::esSpikeArrow);
+
+    QCPItemText *Text_C = new QCPItemText(ui->widget);
+    Text_C->position->setCoords((B/3.0-C+2*R)/2.0, -0.075*B);
+    Text_C->setText(str_C);
+    Text_C->setFont(QFont(font().family(), 10));
+
+    QString str_a=QString("%1").arg(R, 0, 'f', 0);
+
+    QCPItemLine *arrow_a = new QCPItemLine(ui->widget);
+    arrow_a->start->setCoords(-2*R, 0);
+    arrow_a->end->setCoords(-B/2.0, 0);
+    arrow_a->setHead(QCPLineEnding::esSpikeArrow);
+
+    QCPItemText *Text_a = new QCPItemText(ui->widget);
+    Text_a->position->setCoords((-2*R-B/2.0)/2.0, -0.075*B);
+    Text_a->setText(str_a);
+    Text_a->setFont(QFont(font().family(), 10));
+
+    QCPItemLine *arrow_b = new QCPItemLine(ui->widget);
+    arrow_b->start->setCoords(B/3.0-C, 0);
+    arrow_b->end->setCoords(B/3.0-C, sqrt(R*R-C*C));
+    arrow_b->setHead(QCPLineEnding::esSpikeArrow);
+
+
+    QString str=" Арка плавно входит ";
+    QCPItemText *Text = new QCPItemText(ui->widget);
+    Text->position->setCoords(0, -A-0.3*B);
+    Text->setText(str);
+    Text->setFont(QFont(font().family(), 10));
+    Text->setPen(QPen(Qt::black));
 
     DrawPoint();
 }

@@ -50,7 +50,7 @@ private slots:
 private:
     Ui::SecondWindow *ui;
     QString Arch;
-    QPushButton *lancet, *segment, *semicircle, *shamrock, *inflexed, *shouldered_flat, *parabolic, *root, *elliptical, *cycloid;
+    QPushButton *lancet, *segment, *semicircle, *shamrock, *inflexed, *shouldered_flat, *parabolic, *root, *elliptical, *tudor, *rootR, *cycloid;
     ThirdWindow *window3;
     int h=0, a=0, b=0, n=0;
     void Write_to_file();

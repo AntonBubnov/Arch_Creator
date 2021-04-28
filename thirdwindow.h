@@ -37,6 +37,8 @@ private:
     void DrawShouldered_flat();
     void DrawParabolic();
     void DrawRoot();
+    void DrawRootR();
+    void DrawTudor();
     void DrawElliptical();
     void DrawCycloid();
 };

@@ -27,8 +27,11 @@ SecondWindow::SecondWindow(QWidget *parent) :
     ui->pushButton_4->setToolTip("Стрела подъёма должна быть больше половины ширины");
     ui->pushButton_5->setToolTip("Стрела подъёма должна быть равна половине ширины");
     ui->pushButton_6->setToolTip("Стрела подъёма должна быть больше половины ширины");
+    ui->pushButton_7->setToolTip("Построение возможно при любых данных");
     ui->pushButton_8->setToolTip("Стрела подъёма должна быть небольше половины ширины");
+    ui->pushButton_9->setToolTip("Построение возможно при любых данных");
     ui->pushButton_10->setToolTip("Стрела подъёма должна быть в "+QString::fromUtf8("\u03C0")+" раз меньше чем ширина");
+    ui->pushButton_11->setToolTip("Построение возможно при любых данных");
     ui->pushButton_12->setToolTip("Стрела подъёма не должна равнятся половине ширины");
     ui->pushButton_13->setToolTip("стрела подъёма должна быть больше чем шестая часть ширины");
     ui->arrow->setToolTip("Введите натуральное число от 1 до 10.000");

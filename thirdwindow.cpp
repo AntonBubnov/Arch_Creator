@@ -728,7 +728,7 @@ void ThirdWindow::DrawParabolic()
 
     DrawGraph();
 
-    QString str_x="*x";
+    QString str_x="x";
     QString str_y=QString(" y = %1%2%3 ").arg(C, 0, 'f', 2).arg(str_x+QString(0x00B2)+" + ").arg(H, 0, 'f',0 );
     Angle = 90+atan(-4*H/B)*180/M_PI ;
 
@@ -764,7 +764,7 @@ void ThirdWindow::DrawRoot()
     DrawGraph();
 
     QString str_x="(x + ";
-    QString str_y=QString(" y = %1%2%3%4 ").arg(C, 0, 'f', 2).arg("*"+QString(0x221A)+str_x).arg(B/2.0, 0, 'f',0 ).arg(')');
+    QString str_y=QString(" y = %1%2%3%4 ").arg(C, 0, 'f', 2).arg(QString(0x221A)+str_x).arg(B/2.0, 0, 'f',0 ).arg(')');
 
     QCPItemText *Text = new QCPItemText(ui->widget);
     Text->position->setCoords(0, H+0.1*B);
@@ -782,6 +782,7 @@ void ThirdWindow::DrawRoot()
     DrawPoint();
 }
 
+// Функция для отрисовки чертежа арки в форме перевёрнутого корня квадратного
 void ThirdWindow::DrawRootR()
 {
     Name = "Арка в форме квадратного корня";
@@ -795,7 +796,7 @@ void ThirdWindow::DrawRootR()
     DrawGraph();
 
     QString str_x="(-x + ";
-    QString str_y=QString(" y = %1%2%3%4 ").arg(C, 0, 'f', 2).arg("*"+QString(0x221A)+str_x).arg(B/2.0, 0, 'f',0 ).arg(')');
+    QString str_y=QString(" y = %1%2%3%4 ").arg(C, 0, 'f', 2).arg(QString(0x221A)+str_x).arg(B/2.0, 0, 'f',0 ).arg(')');
 
     QCPItemText *Text = new QCPItemText(ui->widget);
     Text->position->setCoords(0, H+0.1*B);
@@ -813,6 +814,7 @@ void ThirdWindow::DrawRootR()
     DrawPoint();
 }
 
+// Функция для отрисовки чертежа арки в стиле тюдор
 void ThirdWindow::DrawTudor()
 {
     Name = "Арка в стиле тюдор";

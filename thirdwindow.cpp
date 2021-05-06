@@ -380,13 +380,13 @@ void ThirdWindow::DraweLancet()
 
 void ThirdWindow::DraweShamrock()
 {
-    Name = "Арка в форме трилисника";
+    Name = "Арка в форме трилистника";
     DrawPerimeter();
     R = B/4.0;
     for(X=xBegin+h;X<xEnd;X+=h){
         x.push_back(X);
         if(X<=-R || X>=R){
-            y.push_back(sqrt(R*R-pow(sqrt(abs(X)-R),4)));
+            y.push_back(sqrt(R*R-(abs(X)-R)*(abs(X)-R)));
         }
         else{
             y.push_back(sqrt(R*R-X*X)+R);
@@ -509,7 +509,7 @@ void ThirdWindow::DraweInflexed()
     R = (H*H+(B*B)/4.0)/(2.0*H);
     for(X=xBegin;X<=xEnd;X+=h){
         x.push_back(X);
-        y.push_back(R-sqrt(R*R-pow(sqrt(-(abs(X)-B/2.0)),4)));
+        y.push_back(R-sqrt(R*R-(abs(X)-B/2.0)*(abs(X)-B/2.0)));
     }
 
     for(X=-2*R;X<=2*R;X+=h){
@@ -601,7 +601,7 @@ void ThirdWindow::DrawShouldered_flat()
     for(X=xBegin+h;X<xEnd;X+=h){
         if(X<-R || X>R){
             x.push_back(X);
-            y.push_back(sqrt(R*R-pow(sqrt(abs(X)-R),4)));
+            y.push_back(sqrt(R*R-(abs(X)-R)*(abs(X)-R)));
         }
         else{
             x.push_back(-R);
